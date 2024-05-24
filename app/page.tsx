@@ -5,6 +5,7 @@ import FeedCard from "@/Components/FeedCard/FeedCard";
 import { CgOptions } from "react-icons/cg";
 import { RiTwitterXFill } from "react-icons/ri";
 import GoogleLoginButton from "@/Components/GoogleLoginButton";
+// import { useCurrentUser } from "@/hooks/user";
 
 interface TwitterSidebarButton {
   title: String;
@@ -47,6 +48,9 @@ const sidebarMenuItems: TwitterSidebarButton[] = [
 ];
 
 export default function Home() {
+  // const {user} = useCurrentUser();
+  const user = true;
+  
   return (
     <>
       <div className="grid grid-cols-12 h-screen w-screen px-32 xl:px-96">
@@ -82,10 +86,10 @@ export default function Home() {
           <FeedCard />
         </div>
         <div className="col-span-3">
-          <div className="p-5 bg-slate-700 rounded-lg w-fit">
+          {!user && <div className="p-5 bg-slate-700 rounded-lg w-fit">
             <h1 className="my-2 text-lg">New to Twitter?</h1>
             <GoogleLoginButton/>
-          </div>
+          </div>}
         </div>
       </div>
     </>
